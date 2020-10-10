@@ -33,6 +33,8 @@ namespace Valve.VR.InteractionSystem
 		public Color pointerLockedColor;
 		public bool showPlayAreaMarker = true;
 
+		public TeleportPoint currentPoint;
+
 		public float teleportFadeTime = 0.1f;
 		public float meshFadeTime = 0.2f;
 
@@ -307,6 +309,8 @@ namespace Valve.VR.InteractionSystem
 					onDeactivateObjectTransform.gameObject.SetActive( false );
 				}
 			}
+			if (currentPoint != null)
+				player.transform.position = currentPoint.transform.position;
 		}
 
 
@@ -865,17 +869,22 @@ namespace Valve.VR.InteractionSystem
 			TeleportPoint teleportPoint = teleportingToMarker as TeleportPoint;
 			Vector3 teleportPosition = pointedAtPosition;
 
-			if ( teleportPoint != null )
-			{
+			if (teleportPoint != null) {
 				teleportPosition = teleportPoint.transform.position;
 
 				//Teleport to a new scene
-				if ( teleportPoint.teleportType == TeleportPoint.TeleportPointType.SwitchToNewScene )
-				{
+				if (teleportPoint.teleportType == TeleportPoint.TeleportPointType.SwitchToNewScene) {
 					teleportPoint.TeleportToScene();
 					return;
 				}
+				if (teleportPoint.ridable)
+					currentPoint = teleportPoint;
+				else
+					currentPoint = null;
+
 			}
+			else
+				currentPoint = null;
 
 			// Find the actual floor position below the navigation mesh
 			TeleportArea teleportArea = teleportingToMarker as TeleportArea;

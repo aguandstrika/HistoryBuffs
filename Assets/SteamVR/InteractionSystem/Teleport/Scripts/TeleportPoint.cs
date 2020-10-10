@@ -21,6 +21,7 @@ namespace Valve.VR.InteractionSystem
 			SwitchToNewScene
 		};
 
+
 		//Public variables
 		public TeleportPointType teleportType = TeleportPointType.MoveToLocation;
 		public string title;
@@ -29,6 +30,8 @@ namespace Valve.VR.InteractionSystem
 		public Color titleHighlightedColor;
 		public Color titleLockedColor;
 		public bool playerSpawnPoint = false;
+
+		public bool ridable;
 
 		//Private data
 		private bool gotReleventComponents = false;
