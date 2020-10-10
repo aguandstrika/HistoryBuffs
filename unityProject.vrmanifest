@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.steamvr.exe",
+      "app_key": "application.generated.unity.historybuffs.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\pizza\\Documents\\unity\\vrhackathon\\SteamVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\pizza\\Documents\\unity\\vrhackathon\\History Buffs\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "SteamVR [Testing]"
+          "name": "History Buffs [Testing]"
         }
       }
     }
